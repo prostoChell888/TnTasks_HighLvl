@@ -1,22 +1,18 @@
 package ru.bahmutov.springApp.beans;
 
 
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 @Component
+@Getter
 public class TestBeanCreatedByAnnotation {
-    private String name;
+    private final String name;
 
     public TestBeanCreatedByAnnotation() {
         this.name = "AnnotationBean";
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }

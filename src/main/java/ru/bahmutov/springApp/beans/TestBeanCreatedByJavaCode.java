@@ -1,18 +1,15 @@
 package ru.bahmutov.springApp.beans;
 
+
+import lombok.Getter;
+
+@Getter
 public class TestBeanCreatedByJavaCode {
 
-    private String name;
+    private final String name;
 
     public TestBeanCreatedByJavaCode() {
         this.name = "JavaCodeBean";
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

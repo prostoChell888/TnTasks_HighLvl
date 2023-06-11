@@ -1,20 +1,16 @@
 package ru.bahmutov.springApp.beans;
 
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
 public class TestBeanCreatedByXML {
 
-  private String name;
+  private final String name;
 
     public TestBeanCreatedByXML() {
         this.name = "XMLBean";
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
