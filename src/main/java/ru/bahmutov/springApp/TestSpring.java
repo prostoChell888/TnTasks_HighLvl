@@ -1,15 +1,23 @@
 package ru.bahmutov.springApp;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
     public static void main(String[] args) {
-        var context = new ClassPathXmlApplicationContext(
+        var contextXML = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
 
-        TestBeanCreatedByXML testBeanCreatedByXML = context.getBean("testBeanCreatedByXML", TestBeanCreatedByXML.class);
+        var testBeanCreatedByXML = contextXML.getBean("testBeanCreatedByXML", TestBeanCreatedByXML.class);
         System.out.println(testBeanCreatedByXML.getName());
-        context.close();
+        var contextAnnotation = new AnnotationConfigApplicationContext(
+                SpringConfig.class
+        );
+
+        var testBeanCreatedByAnnotation = contextAnnotation.getBean("testBeanCreatedByAnnotation", TestBeanCreatedByAnnotation.class);
+        System.out.println(testBeanCreatedByAnnotation.getName());
+
+        contextXML.close();
     }
 }
