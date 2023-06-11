@@ -2,11 +2,11 @@ package ru.bahmutov.springApp;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.bahmutov.springApp.bean.TestBeanCreatedByAnnotation;
-import ru.bahmutov.springApp.bean.TestBeanCreatedByJavaCode;
-import ru.bahmutov.springApp.bean.TestBeanCreatedByXML;
+import ru.bahmutov.springApp.beans.TestBeanCreatedByAnnotation;
+import ru.bahmutov.springApp.beans.TestBeanCreatedByJavaCode;
+import ru.bahmutov.springApp.beans.TestBeanCreatedByXML;
 
-public class TestSpring {
+public class SpringApp {
     public static void main(String[] args) {
         var contextXML = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
