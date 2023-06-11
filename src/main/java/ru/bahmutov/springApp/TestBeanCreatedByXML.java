@@ -6,8 +6,8 @@ public class TestBeanCreatedByXML {
 
   private String name;
 
-    public TestBeanCreatedByXML(String name) {
-        this.name = name;
+    public TestBeanCreatedByXML() {
+        this.name = "XMLBean";
     }
 
     public String getName() {

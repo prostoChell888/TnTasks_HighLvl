@@ -9,7 +9,7 @@
 
     <bean id="testBeanCreatedByXML"
           class="ru.bahmutov.springApp.TestBeanCreatedByXML">
-        <constructor-arg value="XMLBean"/>
+
     </bean>
 
 </beans>
