@@ -1,4 +1,4 @@
-package ru.bahmutov.springApp;
+package ru.bahmutov.springApp.bean;
 
 
 import org.springframework.stereotype.Component;
