@@ -1,7 +1,14 @@
 package ru.bahmutov;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        ApplicationContext context = new AnnotationConfigApplicationContext(PropertyPlaceholderConfigurer.class);
+        PropertyPlaceholderConfigurer config = context.getBean(PropertyPlaceholderConfigurer.class);
+
+        System.out.println("App Name: " + config.getName());
+        System.out.println("App Version: " + config.getVersion());
     }
 }
