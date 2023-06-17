@@ -1,3 +1,13 @@
+spring:
+  profiles:
+    active: "secondProfile"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "firstProfile"
+
 app:
   num: 123
   str: hello
@@ -10,3 +20,22 @@ app:
   myClass:
     firstParam: firstParam
     secondParam: 10s
+---
+spring:
+  config:
+    activate:
+      on-profile: "secondProfile"
+
+
+app:
+  num: 2222
+  str: hello2
+  list:
+    - one2
+    - two2
+    - three2
+    - four2
+
+  myClass:
+    firstParam: firstParam2
+    secondParam: 102s
