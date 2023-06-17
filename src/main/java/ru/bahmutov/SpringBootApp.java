@@ -14,8 +14,13 @@ public class SpringBootApp {
         var ctx = SpringApplication.run(SpringBootApp.class, args);
 
 
-        ApplicationConfig config = ctx.getBean(ApplicationConfig.class);
+        var config = ctx.getBean(ApplicationConfig.class);
         log.info("App num: " + config.num());
         log.info("App str: " + config.str());
+
+        var configHolder = ctx.getBean(ConfigHolder.class);
+
+        log.info("App num: " + configHolder.getNum());
+        log.info("App str: " + configHolder.getStr());
     }
 }
