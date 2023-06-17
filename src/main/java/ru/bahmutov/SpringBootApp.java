@@ -15,12 +15,18 @@ public class SpringBootApp {
 
 
         var config = ctx.getBean(ApplicationConfig.class);
-        log.info("App num: " + config.num());
-        log.info("App str: " + config.str());
+        log.info("Configurations @ConfigurationProperties:\n" +
+                "App num: " + config.num() + "\n" +
+                "App list: " + config.list() + "\n" +
+                "App myClass: " + config.myClass() + "\n" +
+                "App str: " + config.str());
+
+
 
         var configHolder = ctx.getBean(ConfigHolder.class);
 
-        log.info("App num: " + configHolder.getNum());
-        log.info("App str: " + configHolder.getStr());
+        log.info("Configurations @Value:\n" +
+                "App num: " + configHolder.getNum() + "\n" +
+                "App str: " + configHolder.getStr());
     }
 }

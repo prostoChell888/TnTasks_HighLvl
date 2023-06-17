@@ -2,7 +2,11 @@ package ru.bahmutov;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "app", ignoreUnknownFields = false)
+import java.util.List;
+
+@ConfigurationProperties(prefix = "app")
 public record ApplicationConfig(String str,
-                                Integer num) { }
+                                Integer num,
+                                List<String> list,
+                                MyClass myClass) { }
 
