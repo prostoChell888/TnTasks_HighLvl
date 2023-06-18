@@ -1,4 +1,4 @@
-package ru.bahmutov.dao;
+package ru.bahmutov.models;
 
 
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class BankDTO {
+public class Bank {
     private Long id;
     private String name;
 }
