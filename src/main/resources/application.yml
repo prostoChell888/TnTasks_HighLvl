@@ -1,0 +1,4 @@
+datasource:
+  url: jdbc:postgresql://localhost:5432/link_bot
+  password: ${myDbPasswordEnv}
+  username: ${myDbUsernameEnv}
