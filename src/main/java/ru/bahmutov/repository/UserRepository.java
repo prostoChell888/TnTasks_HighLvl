@@ -1,9 +1,9 @@
 package ru.bahmutov.repository;
 
-import ru.bahmutov.dao.UserDTO;
+import ru.bahmutov.models.User;
 
 import java.util.List;
 
 public interface UserRepository {
-    List<UserDTO> getAllUsers();
+    List<User> getAllUsers();
 }

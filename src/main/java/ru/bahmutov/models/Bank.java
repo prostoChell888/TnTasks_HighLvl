@@ -1,24 +1,23 @@
-package ru.bahmutov.dao;
+package ru.bahmutov.models;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "person")
+@Table(name = "bank")
 @ToString
 @Setter
-public class UserDTO {
+public class Bank {
     @Id
     @Column(name = "id")
     private Long id;
-    @Column(name = "full_name")
-    private String fullName;
+    @Column(name = "name")
+    private String name;
 }
