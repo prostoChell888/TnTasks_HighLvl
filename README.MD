@@ -1,1 +1,3 @@
-Задания high lvl для стажировки в ТН
+Задание 4
+
+Можно без использования системы сборки. Развернуть базу данных Postgres. Создать таблицы CREATE TABLE person ( id SERIAL PRIMARY KEY, full_name VARCHAR ); CREATE TABLE bank ( id SERIAL PRIMARY KEY, name VARCHAR ); CREATE TABLE person_bank ( id BIGSERIAL PRIMARY KEY, person_id INTEGER NOT NULL REFERENCES person, bank_id INTEGER NOT NULL REFERENCES bank, UNIQUE (person_id, bank_id) ); Добавить по 5 
