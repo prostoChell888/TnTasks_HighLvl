@@ -1,0 +1,17 @@
+server:
+  port: 8085
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/link_bot
+    password: 123
+    username: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
