@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.bahmutov.dto.response.ApiErrorResponse;
+import ru.bahmutov.exeption.NotFoundException;
 
 import java.util.Arrays;
 
@@ -27,9 +28,9 @@ public class ExceptionApiHandler {
         );
     }
 
-    @ExceptionHandler(NumberFormatException.class)
+    @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ApiErrorResponse apiErrorExceptionHandler(NumberFormatException ex) {
+    public ApiErrorResponse apiErrorExceptionHandler(NotFoundException ex) {
         return new ApiErrorResponse(
                 "Not found",
                 "404",

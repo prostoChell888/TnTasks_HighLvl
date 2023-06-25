@@ -26,7 +26,7 @@ public class NoteServiceJPA implements NoteService {
     private final NoteRepository repository;
 
 
-    public NoteResponse get( @Min(value = 1) @NotNull Long noteId) {
+    public NoteResponse get(@Min(value = 1) @NotNull Long noteId) {
         var note = repository.findById(noteId).orElseThrow(() -> new NotFoundException(NOTE_FOUND_EXCEPTION));
 
         return new NoteResponse(note.getId(), note.getBody(), note.getAuthor());
@@ -38,8 +38,8 @@ public class NoteServiceJPA implements NoteService {
         return new NoteResponse(note.getId(), note.getBody(), note.getAuthor());
     }
 
-    public NoteResponse put( @Min(value = 1) @NotNull Long noteId,
-                             @Valid  NoteRequest noteRequest) {
+    public NoteResponse put(@Min(value = 1) @NotNull Long noteId,
+                            @Valid NoteRequest noteRequest) {
         var note = repository.findById(noteId).orElseThrow(() -> new RuntimeException(NOTE_FOUND_EXCEPTION));
         note.setBody(noteRequest.body());
         note.setAuthor(noteRequest.author());
