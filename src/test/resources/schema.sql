@@ -1,0 +1,6 @@
+CREATE TABLE  notice
+(
+    notice_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    body      VARCHAR(255),
+    author    VARCHAR(255)
+);
