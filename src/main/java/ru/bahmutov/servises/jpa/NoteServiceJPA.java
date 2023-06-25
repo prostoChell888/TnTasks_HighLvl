@@ -40,7 +40,7 @@ public class NoteServiceJPA implements NoteService {
 
     public NoteResponse put(@Min(value = 1) @NotNull Long noteId,
                             @Valid NoteRequest noteRequest) {
-        var note = repository.findById(noteId).orElseThrow(() -> new RuntimeException(NOTE_FOUND_EXCEPTION));
+        var note = repository.findById(noteId).orElseThrow(() -> new NotFoundException(NOTE_FOUND_EXCEPTION));
         note.setBody(noteRequest.body());
         note.setAuthor(noteRequest.author());
         note = repository.save(note);
@@ -48,7 +48,7 @@ public class NoteServiceJPA implements NoteService {
     }
 
     public void delete(@Min(value = 1) @NotNull Long noteId) {
-        var note = repository.findById(noteId).orElseThrow(() -> new RuntimeException(NOTE_FOUND_EXCEPTION));
+        var note = repository.findById(noteId).orElseThrow(() -> new NotFoundException(NOTE_FOUND_EXCEPTION));
         repository.delete(note);
     }
 }
