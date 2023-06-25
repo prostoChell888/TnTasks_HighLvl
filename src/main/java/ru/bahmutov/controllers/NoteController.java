@@ -38,7 +38,4 @@ public class NoteController {
     public void delete(@PathVariable("noteId") Long noteId) {
         service.delete(noteId);
     }
-
-
-
 }
