@@ -23,7 +23,6 @@ import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)
 class NoteServiceJPATest {
-
     @Mock
     private NoteRepository noteRepository;
 
