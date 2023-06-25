@@ -11,5 +11,5 @@ public interface NoteRepository
         extends JpaRepository<Note, Long> {
 
     @Override
-    Optional<Note> findById(Long aLong);
+    Optional<Note> findById(Long id);
 }

@@ -51,7 +51,4 @@ public class NoteServiceJPA implements NoteService {
         var note = repository.findById(noteId).orElseThrow(() -> new RuntimeException(NOTE_FOUND_EXCEPTION));
         repository.delete(note);
     }
-
-
-
 }

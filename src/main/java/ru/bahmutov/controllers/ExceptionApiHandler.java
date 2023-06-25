@@ -13,9 +13,6 @@ import java.util.Arrays;
 
 @RestControllerAdvice
 public class ExceptionApiHandler {
-
-
-
     @ExceptionHandler({ ConstraintViolationException.class, MethodArgumentNotValidException.class})
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ResponseBody
@@ -42,7 +39,5 @@ public class ExceptionApiHandler {
                         .map(StackTraceElement::toString)
                         .toArray(String[]::new));
     }
-
-
 }
 

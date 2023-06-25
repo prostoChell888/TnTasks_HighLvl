@@ -17,5 +17,4 @@ public interface NoteService {
     NoteResponse put(Long noteId, NoteRequest noteRequest);
 
     void delete(Long noteId);
-
 }
