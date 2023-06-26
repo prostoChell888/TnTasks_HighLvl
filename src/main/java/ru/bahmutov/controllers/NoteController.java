@@ -16,26 +16,26 @@ public class NoteController {
     private final NoteService service;
 
     @GetMapping("{noteId}")
-    public ResponseEntity<NoteResponse> get(@PathVariable("noteId") Long noteId) {
-        var note =  service.get(noteId);
+    public ResponseEntity<NoteResponse> getNote(@PathVariable("noteId") Long noteId) {
+        var note =  service.getNote(noteId);
         return ResponseEntity.ok(note);
     }
 
     @PostMapping
-    public ResponseEntity<NoteResponse> post(@RequestBody NoteRequest noteRequest) {
-        var note =  service.post(noteRequest);
+    public ResponseEntity<NoteResponse> createNote(@RequestBody NoteRequest noteRequest) {
+        var note =  service.createNote(noteRequest);
         return ResponseEntity.status(201).body(note);
     }
 
     @PutMapping("{noteId}")
-    public ResponseEntity<NoteResponse> put(@PathVariable("noteId") Long noteId,
-                      @RequestBody NoteRequest noteRequest) {
-        var note =  service.put(noteId, noteRequest);
+    public ResponseEntity<NoteResponse> changeNote(@PathVariable("noteId") Long noteId,
+                                                   @RequestBody NoteRequest noteRequest) {
+        var note =  service.changeNote(noteId, noteRequest);
         return ResponseEntity.ok(note);
     }
 
     @DeleteMapping("{noteId}")
-    public void delete(@PathVariable("noteId") Long noteId) {
-        service.delete(noteId);
+    public void deleteNote(@PathVariable("noteId") Long noteId) {
+        service.deleteNote(noteId);
     }
 }

@@ -26,20 +26,20 @@ public class NoteServiceJPA implements NoteService {
     private final NoteRepository repository;
 
 
-    public NoteResponse get(@Min(value = 1) @NotNull Long noteId) {
+    public NoteResponse getNote(@Min(value = 1) @NotNull Long noteId) {
         var note = repository.findById(noteId).orElseThrow(() -> new NotFoundException(NOTE_FOUND_EXCEPTION));
 
         return new NoteResponse(note.getId(), note.getBody(), note.getAuthor());
     }
 
-    public NoteResponse post(@Valid NoteRequest noteRequest) {
+    public NoteResponse createNote(@Valid NoteRequest noteRequest) {
         var note = Note.builder().author(noteRequest.author()).body(noteRequest.body()).build();
         note = repository.save(note);
         return new NoteResponse(note.getId(), note.getBody(), note.getAuthor());
     }
 
-    public NoteResponse put(@Min(value = 1) @NotNull Long noteId,
-                            @Valid NoteRequest noteRequest) {
+    public NoteResponse changeNote(@Min(value = 1) @NotNull Long noteId,
+                                   @Valid NoteRequest noteRequest) {
         var note = repository.findById(noteId).orElseThrow(() -> new NotFoundException(NOTE_FOUND_EXCEPTION));
         note.setBody(noteRequest.body());
         note.setAuthor(noteRequest.author());
@@ -47,7 +47,7 @@ public class NoteServiceJPA implements NoteService {
         return new NoteResponse(note.getId(), note.getBody(), note.getAuthor());
     }
 
-    public void delete(@Min(value = 1) @NotNull Long noteId) {
+    public void deleteNote(@Min(value = 1) @NotNull Long noteId) {
         var note = repository.findById(noteId).orElseThrow(() -> new NotFoundException(NOTE_FOUND_EXCEPTION));
         repository.delete(note);
     }

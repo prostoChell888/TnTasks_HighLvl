@@ -35,7 +35,7 @@ class NoteControllerTest {
     @DisplayName("should return status 200 after get request")
     void shouldReturn200ResponseAfterGetRequest() throws Exception {
         var request = new NoteResponse(1L, "body", "author");
-        when(noteService.get(1L)).thenReturn(request);
+        when(noteService.getNote(1L)).thenReturn(request);
         mockMvc.perform(MockMvcRequestBuilders.get("/note/1"))
                 .andExpectAll(status().isOk(),
                         content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON),
@@ -61,7 +61,7 @@ class NoteControllerTest {
     @Test
     @DisplayName("should return status 404 after get request")
     void shouldReturn400ResponseAfterGetRequest() throws Exception {
-        when(noteService.get(1L)).thenThrow(NotFoundException.class);
+        when(noteService.getNote(1L)).thenThrow(NotFoundException.class);
         mockMvc.perform(MockMvcRequestBuilders.get("/note/1"))
                 .andExpectAll(status().isNotFound());
     }
@@ -69,7 +69,7 @@ class NoteControllerTest {
     @Test
     @DisplayName("should create new note")
     void shouldCreateNewNote() throws Exception {
-        when(noteService.post(new NoteRequest("body", "author")))
+        when(noteService.createNote(new NoteRequest("body", "author")))
                 .thenReturn(new NoteResponse(1L, "body", "author"));
 
         ResultActions responce = mockMvc.perform(post("/note")
@@ -95,7 +95,7 @@ class NoteControllerTest {
     @Test
     @DisplayName("should change note and return 200 status")
     void shouldChangeNoteAndReturn200Status() throws Exception {
-        when(noteService.put(1L, new NoteRequest("body", "author")))
+        when(noteService.changeNote(1L, new NoteRequest("body", "author")))
                 .thenReturn(new NoteResponse(1L, "body", "author"));
 
         ResultActions responce = mockMvc.perform(put("/note/1")
@@ -127,7 +127,7 @@ class NoteControllerTest {
              .contentType(MediaType.APPLICATION_JSON))
              .andExpect(status().isOk());
 
-        Mockito.verify(noteService, Mockito.times(1)).delete(1L);
+        Mockito.verify(noteService, Mockito.times(1)).deleteNote(1L);
     }
 
 }

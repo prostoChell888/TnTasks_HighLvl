@@ -41,7 +41,7 @@ class NoteServiceJPATest {
         var expectedNoteResponse = new NoteResponse(1L, "body", "Author");
         Mockito.when(noteRepository.findById(1L)).thenReturn(Optional.of(note));
 
-        NoteResponse noteResponse = noteService.get(1L);
+        NoteResponse noteResponse = noteService.getNote(1L);
 
         assertThat(noteResponse).isEqualTo(expectedNoteResponse);
     }
@@ -51,7 +51,7 @@ class NoteServiceJPATest {
     void shouldNotFindNoteById() {
         Mockito.when(noteRepository.findById(1L)).thenThrow(new NotFoundException("Заметка не найдена"));
 
-        assertThatThrownBy(() -> noteService.get(1L)).isInstanceOf(NotFoundException.class)
+        assertThatThrownBy(() -> noteService.getNote(1L)).isInstanceOf(NotFoundException.class)
                 .hasMessage("Заметка не найдена");
     }
 
@@ -72,7 +72,7 @@ class NoteServiceJPATest {
 
         Mockito.when(noteRepository.save(any(Note.class))).thenReturn(noteModelResponse);
 
-        var noteResponse = noteService.post(noteRequest);
+        var noteResponse = noteService.createNote(noteRequest);
         assertThat(noteResponse).isEqualTo(new NoteResponse(1L, "body", "author"));
     }
 
@@ -93,7 +93,7 @@ class NoteServiceJPATest {
         Mockito.when(noteRepository.save(any(Note.class))).thenReturn(new Note(1L , "body", "authorChanged"));
 
         var noteRequest = new NoteRequest("body", "authorChanged");
-        var changedNote = noteService.put(1L, noteRequest);
+        var changedNote = noteService.changeNote(1L, noteRequest);
 
         assertThat(changedNote).isEqualTo(new NoteResponse(1L, "body", "authorChanged"));
     }
@@ -103,7 +103,7 @@ class NoteServiceJPATest {
     void shouldDeleteNote() {
         Mockito.when(noteRepository.findById(1L)).thenReturn(Optional.of(new Note(1L , "body", "author")));
 
-        noteService.delete(1L);
+        noteService.deleteNote(1L);
 
         Mockito.verify(noteRepository, Mockito.times(1)).delete(any(Note.class));
     }

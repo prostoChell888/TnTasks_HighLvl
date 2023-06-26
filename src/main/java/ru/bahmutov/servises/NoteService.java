@@ -8,12 +8,12 @@ import ru.bahmutov.dto.response.NoteResponse;
 
 public interface NoteService {
 
-    NoteResponse get(@Min(value = 1) @NotNull Long noteId);
+    NoteResponse getNote(@Min(value = 1) @NotNull Long noteId);
 
-    NoteResponse post(@Valid NoteRequest noteRequest);
+    NoteResponse createNote(@Valid NoteRequest noteRequest);
 
-    NoteResponse put(@Min(value = 1) @NotNull Long noteId,
-                     @Valid  NoteRequest noteRequest);
+    NoteResponse changeNote(@Min(value = 1) @NotNull Long noteId,
+                            @Valid  NoteRequest noteRequest);
 
-    void delete(@Min(value = 1) @NotNull Long noteId);
+    void deleteNote(@Min(value = 1) @NotNull Long noteId);
 }
