@@ -22,7 +22,6 @@ public class SpringBootApp {
                 "App str: " + config.str());
 
 
-
         var configHolder = ctx.getBean(ConfigHolder.class);
 
         log.info("Configurations @Value:\n" +
