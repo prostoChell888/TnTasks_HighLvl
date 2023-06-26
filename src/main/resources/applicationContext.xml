@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="testBeanCreatedByXML"
-          class="ru.bahmutov.springApp.beans.TestBeanCreatedByXML">
+          class="ru.bahmutov.springapp.beans.TestBeanCreatedByXML">
 
     </bean>
 

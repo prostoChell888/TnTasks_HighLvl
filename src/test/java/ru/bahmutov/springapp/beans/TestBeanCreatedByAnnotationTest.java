@@ -1,11 +1,11 @@
-package ru.bahmutov.springApp.beans;
+package ru.bahmutov.springapp.beans;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.bahmutov.springApp.SpringConfig;
+import ru.bahmutov.springapp.SpringConfig;
 
 
 

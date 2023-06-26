@@ -1,13 +1,13 @@
-package ru.bahmutov.springApp;
+package ru.bahmutov.springapp;
 
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import ru.bahmutov.springApp.beans.TestBeanCreatedByJavaCode;
+import ru.bahmutov.springapp.beans.TestBeanCreatedByJavaCode;
 
 @Configuration
-@ComponentScan("ru.bahmutov.springApp")
+@ComponentScan("ru.bahmutov.springapp")
 public class SpringConfig {
 
     @Bean

@@ -1,8 +1,7 @@
-package ru.bahmutov.springApp.beans;
+package ru.bahmutov.springapp.beans;
 
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 public class TestBeanCreatedByXML {
