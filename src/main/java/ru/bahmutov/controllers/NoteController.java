@@ -24,7 +24,7 @@ public class NoteController {
     @PostMapping
     public ResponseEntity<NoteResponse> post(@RequestBody NoteRequest noteRequest) {
         var note =  service.post(noteRequest);
-        return ResponseEntity.ok(note);
+        return ResponseEntity.status(201).body(note);
     }
 
     @PutMapping("{noteId}")
