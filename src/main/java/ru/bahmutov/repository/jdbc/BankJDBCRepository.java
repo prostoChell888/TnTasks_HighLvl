@@ -64,7 +64,7 @@ public class BankJDBCRepository implements BankRepository {
 
     @Override
     public void save(BankDTO bank) throws SQLException {
-        String selectQuery = "INSERT INTO bank (id, name) " +
+        String selectQuery = "INSERT INTO bank (name) " +
                 "VALUES (?)";
         List<BankDTO> listOfBanks = new LinkedList<>();
         try (Connection connection = DriverManager.getConnection(config.getUrl(), config.getUsername(),
