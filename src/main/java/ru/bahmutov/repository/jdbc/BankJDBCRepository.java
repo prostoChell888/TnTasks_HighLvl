@@ -40,11 +40,12 @@ public class BankJDBCRepository implements BankRepository {
             }
         }
 
-        return getBunks();
+        return getAllBunks();
     }
 
 
-    public List<BankDTO> getBunks() throws SQLException {
+    @Override
+    public List<BankDTO> getAllBunks() throws SQLException {
         String selectQuery = "SELECT * FROM bank";
         List<BankDTO> listOfBanks = new LinkedList<>();
         try (Connection connection = DriverManager.getConnection(config.getUrl(), config.getUsername(),
@@ -59,5 +60,19 @@ public class BankJDBCRepository implements BankRepository {
         }
 
         return listOfBanks;
+    }
+
+    @Override
+    public void save(BankDTO bank) throws SQLException {
+        String selectQuery = "INSERT INTO bank (id, name) " +
+                "VALUES (?)";
+        List<BankDTO> listOfBanks = new LinkedList<>();
+        try (Connection connection = DriverManager.getConnection(config.getUrl(), config.getUsername(),
+                config.getPassword())) {
+            try (var statement =connection.prepareStatement(selectQuery);) {
+                statement.setString(1, bank.getName());
+            }
+
+        }
     }
 }

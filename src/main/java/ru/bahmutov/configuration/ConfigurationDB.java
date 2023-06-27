@@ -19,6 +19,12 @@ public class ConfigurationDB {
         this.password = properties.getProperty("datasource.password");
     }
 
+    public ConfigurationDB(String url, String username, String password) {
+        this.url = url;
+        this.username = username;
+        this.password = password;
+    }
+
     private Properties loadProperties(String configFile) {
         Properties properties = new Properties();
             try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(configFile)) {
