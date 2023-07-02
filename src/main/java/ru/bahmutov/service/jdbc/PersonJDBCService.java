@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class UserJDBCService implements UserService {
+public class PersonJDBCService implements UserService {
 
     private final UserJDBCRepository repository;
 
