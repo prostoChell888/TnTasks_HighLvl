@@ -14,4 +14,6 @@ public interface BankRepository {
     BankDTO getById(long id) throws SQLException;
 
     BankDTO save(BankDTO bank) throws SQLException;
+
+    void deleteAll() throws SQLException;
 }

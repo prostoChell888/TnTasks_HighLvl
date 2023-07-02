@@ -70,6 +70,7 @@ public class BankJDBCRepository implements BankRepository {
         return listOfBanks;
     }
 
+
     @Override
     public BankDTO getById(long id) throws SQLException {
         String query = "SELECT * FROM bank WHERE id = ?";
@@ -90,6 +91,7 @@ public class BankJDBCRepository implements BankRepository {
 
         return result;
     }
+
 
     @Override
     public BankDTO save(BankDTO bank) throws SQLException {
@@ -115,5 +117,23 @@ public class BankJDBCRepository implements BankRepository {
         }
 
         return (generatedId == null) ? null : getById(generatedId);
+    }
+
+
+    @Override
+    public void deleteAll() throws SQLException {
+        String deleteQuery = "TRUNCATE person_bank, bank RESTART IDENTITY";
+
+        try (var connection = DriverManager.getConnection(config.getUrl(), config.getUsername(), config.getPassword())) {
+            connection.setAutoCommit(false);
+            try (var queryStatement = connection.createStatement()) {
+                queryStatement.executeUpdate(deleteQuery);
+                connection.commit();
+            } catch (Exception e) {
+                connection.rollback();
+            } finally {
+                connection.setAutoCommit(true);
+            }
+        }
     }
 }
