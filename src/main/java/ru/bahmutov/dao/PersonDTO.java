@@ -10,6 +10,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class PersonDTO {
+    public PersonDTO(String fullName) {
+        this.fullName = fullName;
+    }
+
     private Long id;
     private String fullName;
 }
