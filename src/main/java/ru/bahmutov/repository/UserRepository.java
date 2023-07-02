@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface UserRepository {
-    List<PersonDTO> getAllUsers() throws SQLException;
+    List<PersonDTO> getAllPersons() throws SQLException;
 
     PersonDTO getById(long id) throws SQLException;
 

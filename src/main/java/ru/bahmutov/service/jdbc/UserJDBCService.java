@@ -16,6 +16,6 @@ public class UserJDBCService implements UserService {
 
     @Override
     public List<PersonDTO> getAllUsers() throws SQLException {
-        return repository.getAllUsers();
+        return repository.getAllPersons();
     }
 }

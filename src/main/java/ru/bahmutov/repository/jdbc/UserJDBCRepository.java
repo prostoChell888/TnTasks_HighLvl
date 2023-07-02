@@ -21,7 +21,7 @@ public class UserJDBCRepository implements UserRepository {
     }
 
     @Override
-    public List<PersonDTO> getAllUsers() throws SQLException {
+    public List<PersonDTO> getAllPersons() throws SQLException {
         String selectQuery = "SELECT * FROM person";
         List<PersonDTO> listOfPeople = new LinkedList<>();
         try (Connection connection = DriverManager.getConnection(config.getUrl(), config.getUsername(),
