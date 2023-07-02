@@ -1,10 +1,16 @@
 package ru.bahmutov.repository;
 
-import ru.bahmutov.dao.UserDTO;
+import ru.bahmutov.dao.PersonDTO;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public interface UserRepository {
-    List<UserDTO> getAllUsers() throws SQLException;
+    List<PersonDTO> getAllUsers() throws SQLException;
+
+    PersonDTO getById(long id) throws SQLException;
+
+    PersonDTO save(PersonDTO person) throws SQLException;
+
+    void deleteAll() throws SQLException;
 }
