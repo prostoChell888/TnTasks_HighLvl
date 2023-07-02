@@ -5,8 +5,8 @@ import ru.bahmutov.dao.PersonDTO;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface UserService {
+public interface PersonService {
 
-    List<PersonDTO> getAllUsers() throws SQLException;
+    List<PersonDTO> getAllPerson() throws SQLException;
 }
 

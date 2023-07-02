@@ -2,17 +2,17 @@ package ru.bahmutov.repository.jdbc;
 
 import ru.bahmutov.configuration.ConfigurationDB;
 import ru.bahmutov.dao.PersonDTO;
-import ru.bahmutov.repository.UserRepository;
+import ru.bahmutov.repository.PersonRepository;
 
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class UserJDBCRepository implements UserRepository {
+public class PersonJDBCRepository implements PersonRepository {
 
     private final ConfigurationDB config;
 
-    public UserJDBCRepository(ConfigurationDB config)
+    public PersonJDBCRepository(ConfigurationDB config)
             {
         if (config == null) {
             throw new IllegalArgumentException("Configuration file cannot be null");

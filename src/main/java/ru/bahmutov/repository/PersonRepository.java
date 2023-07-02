@@ -5,7 +5,7 @@ import ru.bahmutov.dao.PersonDTO;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface UserRepository {
+public interface PersonRepository {
     List<PersonDTO> getAllPersons() throws SQLException;
 
     PersonDTO getById(long id) throws SQLException;
