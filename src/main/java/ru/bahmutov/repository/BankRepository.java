@@ -11,5 +11,7 @@ public interface BankRepository {
 
     List<BankDTO> getAllBunks() throws SQLException;
 
-    void save(BankDTO bank) throws SQLException;
+    BankDTO getById(long id) throws SQLException;
+
+    BankDTO save(BankDTO bank) throws SQLException;
 }
