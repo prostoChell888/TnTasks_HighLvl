@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import org.testcontainers.containers.PostgreSQLContainer;
 import ru.bahmutov.configuration.ConfigurationDB;
 import ru.bahmutov.dao.PersonDTO;
-import ru.bahmutov.repository.UserRepository;
+import ru.bahmutov.repository.PersonRepository;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 class UserJDBCRepositoryTest {
 
     private static PostgreSQLContainer<?> container;
-    private static UserRepository repository;
+    private static PersonRepository repository;
 
     @BeforeAll
     public static void setUp() {
@@ -39,7 +39,7 @@ class UserJDBCRepositoryTest {
         String password = container.getPassword();
 
         var config = new ConfigurationDB(jdbcUrl, username, password);
-        repository = new UserJDBCRepository(config);
+        repository = new PersonJDBCRepository(config);
     }
 
     @Test
