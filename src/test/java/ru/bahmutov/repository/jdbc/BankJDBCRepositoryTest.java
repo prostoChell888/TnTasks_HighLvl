@@ -6,11 +6,7 @@ import ru.bahmutov.configuration.ConfigurationDB;
 import ru.bahmutov.dao.BankDTO;
 import ru.bahmutov.repository.BankRepository;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 public class BankJDBCRepositoryTest {
@@ -80,7 +76,7 @@ public class BankJDBCRepositoryTest {
     @Test
     @DisplayName("Должее вернуть ввсе сущности банков из БД")
     void shouldReturnAllBanksFRomBd() throws SQLException {
-        var res = repository.save(new BankDTO( "ВТБ"));
+        repository.save(new BankDTO( "ВТБ"));
         repository.save(new BankDTO( "Сбербанк"));
         repository.save(new BankDTO( "АльфаБанк"));
 
