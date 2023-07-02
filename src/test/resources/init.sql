@@ -1,17 +1,29 @@
-CREATE TABLE person
+CREATE TABLE IF NOT EXISTS person
 (
-    id        SERIAL PRIMARY KEY,
-    full_name VARCHAR
+    id        BIGINT GENERATED ALWAYS AS IDENTITY,
+    full_name VARCHAR,
+
+    CONSTRAINT PK_person_id PRIMARY KEY (id)
+
 );
-CREATE TABLE bank
+
+
+CREATE TABLE IF NOT EXISTS bank
 (
-    id   SERIAL PRIMARY KEY,
-    name VARCHAR
+    id   BIGINT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR,
+
+    CONSTRAINT PK_bank_id PRIMARY KEY (id)
 );
-CREATE TABLE person_bank
+
+
+CREATE TABLE IF NOT EXISTS person_bank
 (
-    id        BIGSERIAL PRIMARY KEY,
+    id        BIGINT GENERATED ALWAYS AS IDENTITY,
     person_id INTEGER NOT NULL REFERENCES person,
     bank_id   INTEGER NOT NULL REFERENCES bank,
-    UNIQUE (person_id, bank_id)
+    UNIQUE (person_id, bank_id),
+
+    CONSTRAINT PK_person_bank_id PRIMARY KEY (id)
 );
+
