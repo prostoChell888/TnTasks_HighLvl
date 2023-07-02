@@ -1,10 +1,9 @@
 package ru.bahmutov.repository.jdbc;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.testcontainers.containers.PostgreSQLContainer;
 import ru.bahmutov.configuration.ConfigurationDB;
+import ru.bahmutov.dao.BankDTO;
 import ru.bahmutov.repository.BankRepository;
 
 import java.sql.Connection;
@@ -12,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class BankJDBCRepositoryTest {
 
@@ -22,6 +22,11 @@ public class BankJDBCRepositoryTest {
     public static void setUp() {
         setUpContainer();
         createRepository();
+    }
+
+    @BeforeEach
+    public void cleanTables() throws SQLException {
+        repository.deleteAll();
     }
 
     public static void setUpContainer() {
@@ -47,10 +52,46 @@ public class BankJDBCRepositoryTest {
     }
 
     @Test
-     void testJdbc() throws SQLException {
+    @DisplayName("Изменине все имен банков в БД")
+    void shouldChangeAllNamesOfBunks() throws SQLException {
+        var res = repository.save(new BankDTO( "ВТБ"));
+        repository.save(new BankDTO( "Сбербанк"));
+        repository.save(new BankDTO( "АльфаБанк"));
 
-        repository.
-                updateBankNames("1");
+        List<BankDTO> expectedListOfBunks = List.of(
+                  new BankDTO(1L, "New bank name")
+                , new BankDTO(2L, "New bank name")
+                , new BankDTO(3L, "New bank name"));
+
+        var listOfBunks = repository.updateBankNames("New bank name");
+
+        Assertions.assertIterableEquals(expectedListOfBunks, listOfBunks);
+    }
+
+    @Test
+    @DisplayName("Сохранение банка в БД")
+    void shouldSaveBank() throws SQLException {
+        var saveBank = repository.save(new BankDTO("BankName"));
+        var bankInBd = repository.getById(saveBank.getId());
+
+        Assertions.assertEquals(bankInBd, saveBank);
+    }
+
+    @Test
+    @DisplayName("Должее вернуть ввсе сущности банков из БД")
+    void shouldReturnAllBanksFRomBd() throws SQLException {
+        var res = repository.save(new BankDTO( "ВТБ"));
+        repository.save(new BankDTO( "Сбербанк"));
+        repository.save(new BankDTO( "АльфаБанк"));
+
+        List<BankDTO> expectedListOfBunks = List.of(
+                new BankDTO(1L, "ВТБ")
+                , new BankDTO(2L, "Сбербанк")
+                , new BankDTO(3L, "АльфаБанк"));
+
+        var listOfBunks = repository.getAllBunks();
+
+        Assertions.assertIterableEquals(expectedListOfBunks, listOfBunks);
 
     }
 }
