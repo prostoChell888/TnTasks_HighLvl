@@ -1,14 +1,12 @@
 package ru.bahmutov.dao;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class PersonDTO {
     public PersonDTO(String fullName) {
         this.fullName = fullName;
