@@ -1,12 +1,12 @@
 package ru.bahmutov.service;
 
-import ru.bahmutov.dao.UserDTO;
+import ru.bahmutov.dao.PersonDTO;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public interface UserService {
 
-    List<UserDTO> getAllUsers() throws SQLException;
+    List<PersonDTO> getAllUsers() throws SQLException;
 }
 

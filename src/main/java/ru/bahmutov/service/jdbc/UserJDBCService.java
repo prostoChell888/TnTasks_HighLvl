@@ -1,7 +1,7 @@
 package ru.bahmutov.service.jdbc;
 
 import lombok.RequiredArgsConstructor;
-import ru.bahmutov.dao.UserDTO;
+import ru.bahmutov.dao.PersonDTO;
 import ru.bahmutov.repository.jdbc.UserJDBCRepository;
 import ru.bahmutov.service.UserService;
 
@@ -15,7 +15,7 @@ public class UserJDBCService implements UserService {
 
 
     @Override
-    public List<UserDTO> getAllUsers() throws SQLException {
+    public List<PersonDTO> getAllUsers() throws SQLException {
         return repository.getAllUsers();
     }
 }
