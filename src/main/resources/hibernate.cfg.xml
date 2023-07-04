@@ -16,6 +16,6 @@
         <property name="hibernate.format_sql">true</property>
 
         <mapping class="ru.bahmutov.models.Bank" />
-        <mapping class="ru.bahmutov.models.User" />
+        <mapping class="ru.bahmutov.models.Person" />
     </session-factory>
 </hibernate-configuration>
