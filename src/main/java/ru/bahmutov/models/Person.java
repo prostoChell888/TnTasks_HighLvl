@@ -15,7 +15,7 @@ import lombok.ToString;
 @Table(name = "person")
 @ToString
 @Setter
-public class User {
+public class Person {
     @Id
     @Column(name = "id")
     private Long id;
