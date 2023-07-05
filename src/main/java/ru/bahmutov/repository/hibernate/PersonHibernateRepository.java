@@ -1,6 +1,5 @@
 package ru.bahmutov.repository.hibernate;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,57 +16,70 @@ public class PersonHibernateRepository implements PersonRepository {
     @Override
     public List<Person> getAllUsers() {
         List<Person> people;
+        Transaction transaction = null;
         try (var session = sessionFactory.openSession()) {
-            session.beginTransaction();
-
-            CriteriaBuilder builder = session.getCriteriaBuilder();
-            var criteria = builder.createQuery(Person.class);
-            criteria.from(Person.class);
-            people = session.createQuery(criteria).getResultList();
+            transaction = session.beginTransaction();
+            var query = session.createQuery("SELECT u FROM Person u", Person.class);
+            people = query.getResultList();
             session.getTransaction().commit();
+        } catch (Exception e) {
+            if (transaction != null && transaction.isActive())
+                transaction.rollback();
+            throw e;
         }
+
         return people;
     }
+
 
     @Override
     public Person getById(long id) {
         Person person;
+
         Transaction transaction = null;
         try (var session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-
-            var query = session.createQuery("SELECT u FROM Person u", Person.class);
-            query.executeUpdate();
-
-            CriteriaBuilder builder = session.getCriteriaBuilder();
-            var criteria = builder.createQuery(Person.class);
-            criteria.from(Person.class);
             person = session.get(Person.class, id);
 
             session.getTransaction().commit();
         } catch (Exception e) {
-            if (transaction != null && transaction.isActive()) transaction.rollback();
+            if (transaction != null && transaction.isActive())
+                transaction.rollback();
             throw e;
         }
 
         return person;
     }
 
+
     @Override
     public Person save(Person person) {
-        return null;
+        Transaction transaction = null;
+        try (var session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+            session.persist(person);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            if (transaction != null && transaction.isActive())
+                transaction.rollback();
+            throw e;
+        }
+
+        return person;
     }
+
 
     @Override
     public void deleteAll() {
         try (var session = sessionFactory.openSession()) {
             var transaction = session.beginTransaction();
             try {
-                var query = session.createQuery("DELETE FROM Person", Person.class);
-                query.executeUpdate();
+                session.createQuery("delete from Person").executeUpdate();
+                session.createNativeQuery("ALTER SEQUENCE person_id_seq RESTART WITH 1").executeUpdate();
                 transaction.commit();
             } catch (Exception e) {
-                transaction.rollback();
+                if (transaction != null && transaction.isActive())
+                    transaction.rollback();
                 throw e;
             }
         }
