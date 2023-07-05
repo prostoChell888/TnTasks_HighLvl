@@ -45,7 +45,7 @@ class BankHibernateRepositoryTest {
     @Test
     @DisplayName("Изменине все имен банков в БД")
     void shouldChangeAllNamesOfBunks() {
-        var res = repository.save(new Bank( "ВТБ"));
+        repository.save(new Bank( "ВТБ"));
         repository.save(new Bank( "Сбербанк"));
         repository.save(new Bank( "АльфаБанк"));
 
