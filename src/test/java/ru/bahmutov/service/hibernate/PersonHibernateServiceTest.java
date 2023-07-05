@@ -44,5 +44,4 @@ class PersonHibernateServiceTest {
 
         assertIterableEquals(expectedListOfPerson, people);
     }
-
 }
