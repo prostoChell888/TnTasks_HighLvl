@@ -30,4 +30,24 @@ public class BankHibernateRepository implements BankRepository {
 
         return banks;
     }
+
+    @Override
+    public List<Bank> getAllBunks() {
+        return null;
+    }
+
+    @Override
+    public Bank getById(long id) {
+        return null;
+    }
+
+    @Override
+    public Bank save(Bank bank) {
+        return null;
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
 }
