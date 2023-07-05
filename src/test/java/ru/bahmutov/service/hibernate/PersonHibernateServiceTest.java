@@ -31,7 +31,7 @@ class PersonHibernateServiceTest {
 
     @Test
     @DisplayName("should get all person")
-    void shouldDeleteNote()  {
+    void shouldGetAllPeople()  {
         List<PersonDto> expectedListOfPerson = List.of(
                 new PersonDto(1L ,"person1"),
                 new PersonDto(2L ,"person2"));
