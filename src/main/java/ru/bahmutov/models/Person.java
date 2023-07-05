@@ -20,6 +20,10 @@ public class Person {
     @Column(name = "full_name")
     private String fullName;
 
+    public Person(String fullName) {
+        this.fullName = fullName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
