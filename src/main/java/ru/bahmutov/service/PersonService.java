@@ -1,11 +1,11 @@
 package ru.bahmutov.service;
 
-import ru.bahmutov.models.Person;
+import ru.bahmutov.dto.PersonDto;
 
 import java.util.List;
 
 public interface PersonService {
 
-        List<Person> getAllUsers();
+    List<PersonDto> getAllUsers();
 
 }

@@ -1,10 +1,10 @@
 package ru.bahmutov.service;
 
-import ru.bahmutov.models.Bank;
+import ru.bahmutov.dto.BankDto;
 
 import java.util.List;
 
 public interface BankService {
 
-    List<Bank> updateBankNames(String newName);
+    List<BankDto> updateBankNames(String newName);
 }
