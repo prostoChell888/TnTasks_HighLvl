@@ -16,7 +16,7 @@ public class BankHibernateRepository implements BankRepository {
     @Override
     public List<Bank> updateBankNames(String newName) {
         List<Bank> banks;
-        try(var session = sessionFactory.getCurrentSession()) {
+        try(var session = sessionFactory.openSession()) {
             session.beginTransaction();
 
             CriteriaBuilder builder = session.getCriteriaBuilder();
