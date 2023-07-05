@@ -5,7 +5,7 @@ import ru.bahmutov.models.Person;
 import java.util.List;
 
 public interface PersonRepository {
-    List<Person> getAllUsers() ;
+    List<Person> getAllPeople() ;
 
     Person getById(long id) ;
 

@@ -14,7 +14,7 @@ public class PersonHibernateRepository implements PersonRepository {
     private final SessionFactory sessionFactory;
 
     @Override
-    public List<Person> getAllUsers() {
+    public List<Person> getAllPeople() {
         List<Person> people;
         Transaction transaction = null;
         try (var session = sessionFactory.openSession()) {

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface PersonService {
 
-    List<PersonDto> getAllUsers();
+    List<PersonDto> getAllPeople();
 
 }
