@@ -52,7 +52,7 @@ class PersonHibernateRepositoryTest {
         repository.save(new Person(null, "Jill"));
 
 
-        var userList = repository.getAllUsers();
+        var userList = repository.getAllPeople();
         assertIterableEquals(List.of(
                 new Person(1L, "Jon"),
                 new Person(2L, "Jin"),
