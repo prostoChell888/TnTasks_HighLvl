@@ -43,7 +43,8 @@ class BankRepositoryTest {
                 , new Bank(2L, "New bank name")
                 , new Bank(3L, "New bank name"));
 
-        var  listOfBunks = repository.updateBankNames("new bank names");
+        repository.updateBankNames("new bank names");
+        var listOfBunks = repository.findAll();
 
         assertIterableEquals(expectedListOfBunks, listOfBunks);
     }
