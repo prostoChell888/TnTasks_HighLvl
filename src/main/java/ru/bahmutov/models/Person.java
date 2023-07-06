@@ -15,7 +15,7 @@ import lombok.Setter;
 @Table(name = "person")
 @Setter
 @Getter
-public class User {
+public class Person {
     @Id
     @Column(name = "id")
     private Long id;
