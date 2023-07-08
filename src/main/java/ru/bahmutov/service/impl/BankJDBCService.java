@@ -1,4 +1,4 @@
-package ru.bahmutov.service.jdbc;
+package ru.bahmutov.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import ru.bahmutov.dao.BankDTO;

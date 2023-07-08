@@ -5,8 +5,8 @@ import ru.bahmutov.repository.impl.BankJDBCRepository;
 import ru.bahmutov.repository.impl.PersonJDBCRepository;
 import ru.bahmutov.service.BankService;
 import ru.bahmutov.service.PersonService;
-import ru.bahmutov.service.jdbc.BankJDBCService;
-import ru.bahmutov.service.jdbc.PersonJDBCService;
+import ru.bahmutov.service.impl.BankJDBCService;
+import ru.bahmutov.service.impl.PersonJDBCService;
 
 import java.sql.SQLException;
 

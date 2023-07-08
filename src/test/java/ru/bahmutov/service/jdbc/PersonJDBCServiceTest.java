@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.bahmutov.dao.PersonDTO;
 import ru.bahmutov.repository.impl.PersonJDBCRepository;
+import ru.bahmutov.service.impl.PersonJDBCService;
 
 import java.sql.SQLException;
 import java.util.List;
