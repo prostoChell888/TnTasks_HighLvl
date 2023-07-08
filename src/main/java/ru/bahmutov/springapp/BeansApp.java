@@ -1,28 +1,36 @@
 package ru.bahmutov.springapp;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 import ru.bahmutov.springapp.beans.TestBeanCreatedByAnnotation;
 import ru.bahmutov.springapp.beans.TestBeanCreatedByJavaCode;
 import ru.bahmutov.springapp.beans.TestBeanCreatedByXML;
 
-public class BeansApp {
 
-    public static void main(String[] args) {
-        var contextXML = new ClassPathXmlApplicationContext("applicationContext.xml");
-        var testBeanCreatedByXML = contextXML.getBean("testBeanCreatedByXML", TestBeanCreatedByXML.class);
-        contextXML.close();
+@SpringBootApplication
+@ImportResource("classpath:applicationContext.xml")
+public class BeansApp implements CommandLineRunner {
+        @Autowired
+        private TestBeanCreatedByXML exampleXMLBean;
+        @Autowired
+        private TestBeanCreatedByJavaCode javaCodeBean;
+        @Autowired
+        private TestBeanCreatedByAnnotation annotationBean;
 
 
-        var contextAnnotation = new AnnotationConfigApplicationContext(SpringConfig.class);
-        var testBeanCreatedByAnnotation = contextAnnotation.getBean("testBeanCreatedByAnnotation", TestBeanCreatedByAnnotation.class);
+        public static void main(String[] args) {
+            ConfigurableApplicationContext ctxt = SpringApplication.run(BeansApp.class, args);
 
-        var testBeanCreatedByJavaCode = contextAnnotation.getBean("javaCodeBean", TestBeanCreatedByJavaCode.class);
-        contextAnnotation.close();
+        }
+        @Override
+        public void run(String... args) throws Exception {
+            System.out.println(exampleXMLBean.getName());
+            System.out.println(javaCodeBean.getName());
+            System.out.println(annotationBean.getName());
 
-        System.out.println( testBeanCreatedByXML.getName());
-        System.out.println( testBeanCreatedByAnnotation.getName());
-        System.out.println( testBeanCreatedByJavaCode.getName());
-
-    }
+        }
 }
