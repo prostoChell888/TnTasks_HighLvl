@@ -2,7 +2,7 @@ package ru.bahmutov.service.jdbc;
 
 import lombok.RequiredArgsConstructor;
 import ru.bahmutov.dao.BankDTO;
-import ru.bahmutov.repository.jdbc.BankJDBCRepository;
+import ru.bahmutov.repository.impl.BankJDBCRepository;
 import ru.bahmutov.service.BankService;
 
 import java.sql.SQLException;

@@ -2,7 +2,7 @@ package ru.bahmutov.service.jdbc;
 
 import lombok.RequiredArgsConstructor;
 import ru.bahmutov.dao.PersonDTO;
-import ru.bahmutov.repository.jdbc.PersonJDBCRepository;
+import ru.bahmutov.repository.impl.PersonJDBCRepository;
 import ru.bahmutov.service.PersonService;
 
 import java.sql.SQLException;

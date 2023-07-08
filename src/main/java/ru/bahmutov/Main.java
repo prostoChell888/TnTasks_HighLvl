@@ -1,8 +1,8 @@
 package ru.bahmutov;
 
 import ru.bahmutov.configuration.ConfigurationDB;
-import ru.bahmutov.repository.jdbc.BankJDBCRepository;
-import ru.bahmutov.repository.jdbc.PersonJDBCRepository;
+import ru.bahmutov.repository.impl.BankJDBCRepository;
+import ru.bahmutov.repository.impl.PersonJDBCRepository;
 import ru.bahmutov.service.BankService;
 import ru.bahmutov.service.PersonService;
 import ru.bahmutov.service.jdbc.BankJDBCService;

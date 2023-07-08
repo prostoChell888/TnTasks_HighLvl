@@ -5,6 +5,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import ru.bahmutov.configuration.ConfigurationDB;
 import ru.bahmutov.dao.PersonDTO;
 import ru.bahmutov.repository.PersonRepository;
+import ru.bahmutov.repository.impl.PersonJDBCRepository;
 
 import java.sql.SQLException;
 import java.util.List;

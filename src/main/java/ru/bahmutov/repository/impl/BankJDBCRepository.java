@@ -1,4 +1,4 @@
-package ru.bahmutov.repository.jdbc;
+package ru.bahmutov.repository.impl;
 
 import ru.bahmutov.configuration.ConfigurationDB;
 import ru.bahmutov.dao.BankDTO;
