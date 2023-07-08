@@ -1,4 +1,4 @@
-package ru.bahmutov.servises.jpa;
+package ru.bahmutov.servises.impl;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;

@@ -13,6 +13,7 @@ import ru.bahmutov.entity.Note;
 import ru.bahmutov.exeption.NotFoundException;
 import ru.bahmutov.repositories.NoteRepository;
 import ru.bahmutov.servises.NoteService;
+import ru.bahmutov.servises.impl.NoteServiceJPA;
 
 import java.util.Optional;
 
