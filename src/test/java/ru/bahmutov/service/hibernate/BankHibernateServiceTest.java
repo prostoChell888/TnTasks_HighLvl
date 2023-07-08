@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.bahmutov.dto.BankDto;
 import ru.bahmutov.models.Bank;
-import ru.bahmutov.repository.hibernate.BankHibernateRepository;
+import ru.bahmutov.repository.impl.BankHibernateRepository;
 import ru.bahmutov.service.BankService;
 import ru.bahmutov.service.impl.BankHibernateService;
 

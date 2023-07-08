@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.bahmutov.dto.PersonDto;
 import ru.bahmutov.models.Person;
-import ru.bahmutov.repository.hibernate.PersonHibernateRepository;
+import ru.bahmutov.repository.impl.PersonHibernateRepository;
 import ru.bahmutov.service.impl.PersonHibernateService;
 
 import java.util.List;

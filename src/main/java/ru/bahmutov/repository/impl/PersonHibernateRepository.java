@@ -1,4 +1,4 @@
-package ru.bahmutov.repository.hibernate;
+package ru.bahmutov.repository.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;

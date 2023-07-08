@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import org.testcontainers.containers.PostgreSQLContainer;
 import ru.bahmutov.models.Bank;
 import ru.bahmutov.repository.BankRepository;
+import ru.bahmutov.repository.impl.BankHibernateRepository;
 import ru.bahmutov.util.HibernateUtil;
 
 import java.util.List;

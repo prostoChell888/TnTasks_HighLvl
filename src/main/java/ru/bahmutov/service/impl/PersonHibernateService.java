@@ -2,7 +2,7 @@ package ru.bahmutov.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import ru.bahmutov.dto.PersonDto;
-import ru.bahmutov.repository.hibernate.PersonHibernateRepository;
+import ru.bahmutov.repository.impl.PersonHibernateRepository;
 import ru.bahmutov.service.PersonService;
 
 import java.util.LinkedList;

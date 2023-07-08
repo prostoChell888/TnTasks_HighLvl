@@ -1,4 +1,4 @@
-package ru.bahmutov.repository.hibernate;
+package ru.bahmutov.repository.impl;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
