@@ -11,6 +11,7 @@ import ru.bahmutov.dto.BankDto;
 import ru.bahmutov.models.Bank;
 import ru.bahmutov.repository.hibernate.BankHibernateRepository;
 import ru.bahmutov.service.BankService;
+import ru.bahmutov.service.impl.BankHibernateService;
 
 import java.util.List;
 
