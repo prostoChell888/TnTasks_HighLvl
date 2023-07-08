@@ -1,4 +1,4 @@
-package ru.bahmutov.service.sprinddata;
+package ru.bahmutov.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

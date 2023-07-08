@@ -1,4 +1,4 @@
-package ru.bahmutov.service.sprinddata;
+package ru.bahmutov.service.impl;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
