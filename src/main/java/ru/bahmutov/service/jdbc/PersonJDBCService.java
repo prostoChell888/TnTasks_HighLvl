@@ -13,7 +13,6 @@ public class PersonJDBCService implements PersonService {
 
     private final PersonJDBCRepository repository;
 
-
     @Override
     public List<PersonDTO> getAllPerson() throws SQLException {
         return repository.getAllPersons();
