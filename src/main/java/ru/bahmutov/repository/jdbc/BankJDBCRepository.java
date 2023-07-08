@@ -5,8 +5,8 @@ import ru.bahmutov.dao.BankDTO;
 import ru.bahmutov.repository.BankRepository;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -49,7 +49,7 @@ public class BankJDBCRepository implements BankRepository {
     @Override
     public List<BankDTO> getAllBunks() throws SQLException {
         String selectQuery = "SELECT * FROM bank";
-        List<BankDTO> listOfBanks = new LinkedList<>();
+        List<BankDTO> listOfBanks = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(config.getUrl(), config.getUsername(),
                 config.getPassword())) {

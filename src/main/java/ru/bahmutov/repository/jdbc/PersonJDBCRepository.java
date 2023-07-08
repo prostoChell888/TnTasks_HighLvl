@@ -5,7 +5,7 @@ import ru.bahmutov.dao.PersonDTO;
 import ru.bahmutov.repository.PersonRepository;
 
 import java.sql.*;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonJDBCRepository implements PersonRepository {
@@ -23,7 +23,7 @@ public class PersonJDBCRepository implements PersonRepository {
     @Override
     public List<PersonDTO> getAllPersons() throws SQLException {
         String selectQuery = "SELECT * FROM person";
-        List<PersonDTO> listOfPeople = new LinkedList<>();
+        List<PersonDTO> listOfPeople = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(config.getUrl(), config.getUsername(),
                 config.getPassword())) {
 
