@@ -1,8 +1,8 @@
 package ru.bahmutov.service.impl;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import ru.bahmutov.models.Bank;
 import ru.bahmutov.repository.BankRepository;
@@ -18,7 +18,8 @@ public class BankServiceJPA implements BankService {
     private final BankRepository repository;
 
     @Override
-    public List<Bank> updateBankNames(@NotBlank String newName) {
+    @Transactional
+    public List<Bank> updateBankNames(String newName) {
         repository.updateBankNames(newName);
         return repository.findAll();
     }

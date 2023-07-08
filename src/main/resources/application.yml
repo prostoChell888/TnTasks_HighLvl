@@ -1,4 +1,6 @@
-datasource:
-  url: jdbc:postgresql://localhost:5432/link_bot
-  password: ${myDbPasswordEnv}
-  username: ${myDbUsernameEnv}
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/UserAndBanks
+    password: 123
+    username: postgres
