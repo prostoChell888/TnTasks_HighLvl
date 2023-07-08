@@ -11,7 +11,7 @@ import ru.bahmutov.springapp.beans.TestBeanCreatedByJavaCode;
 public class SpringConfig {
 
     @Bean
-    public TestBeanCreatedByJavaCode javaCodeBean(){
+    public TestBeanCreatedByJavaCode javaCodeBean() {
         return new TestBeanCreatedByJavaCode();
     }
 }
