@@ -37,8 +37,6 @@ public class BankJDBCRepository implements BankRepository {
                 connection.commit();
             } catch (Exception e) {
                 connection.rollback();
-            } finally {
-                connection.setAutoCommit(true);
             }
         }
 
@@ -62,8 +60,6 @@ public class BankJDBCRepository implements BankRepository {
                 connection.commit();
             } catch (Exception e) {
                 connection.rollback();
-            } finally {
-                connection.setAutoCommit(true);
             }
         }
 
@@ -84,8 +80,6 @@ public class BankJDBCRepository implements BankRepository {
                 result = new BankDTO(resSet.getLong("id"), resSet.getString("name"));
             } catch (Exception e) {
                 connection.rollback();
-            } finally {
-                connection.setAutoCommit(true);
             }
         }
 
@@ -111,8 +105,6 @@ public class BankJDBCRepository implements BankRepository {
                 }
             } catch (Exception e) {
                 connection.rollback();
-            } finally {
-                connection.setAutoCommit(true);
             }
         }
 
@@ -131,8 +123,6 @@ public class BankJDBCRepository implements BankRepository {
                 connection.commit();
             } catch (Exception e) {
                 connection.rollback();
-            } finally {
-                connection.setAutoCommit(true);
             }
         }
     }

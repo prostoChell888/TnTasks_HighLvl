@@ -51,8 +51,6 @@ public class PersonJDBCRepository implements PersonRepository {
                 result = new PersonDTO(resSet.getLong("id"), resSet.getString("full_name"));
             } catch (Exception e) {
                 connection.rollback();
-            } finally {
-                connection.setAutoCommit(true);
             }
         }
 
@@ -77,8 +75,6 @@ public class PersonJDBCRepository implements PersonRepository {
                 }
             } catch (Exception e) {
                 connection.rollback();
-            } finally {
-                connection.setAutoCommit(true);
             }
         }
 
@@ -96,8 +92,6 @@ public class PersonJDBCRepository implements PersonRepository {
                 connection.commit();
             } catch (Exception e) {
                 connection.rollback();
-            } finally {
-                connection.setAutoCommit(true);
             }
         }
     }
