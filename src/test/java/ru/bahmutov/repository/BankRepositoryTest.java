@@ -33,7 +33,7 @@ class BankRepositoryTest {
 
     @Test
     @DisplayName("should update all banks names ")
-    void shouldGetNoteById() {
+    void shouldUpdateBanksNames() {
         repository.save(new Bank(null, "ВТБ"));
         repository.save(new Bank(null, "Сбербанк"));
         repository.save(new Bank(null, "АльфаБанк"));

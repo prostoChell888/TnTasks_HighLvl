@@ -39,6 +39,4 @@ class PersonRepositoryTest {
                         new Person(3L, "Jill")),
                 userList);
     }
-
-  
 }
