@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Objects;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -29,14 +27,14 @@ public class Person {
 
         Person person = (Person) o;
 
-        if (!Objects.equals(id, person.id)) return false;
-        return Objects.equals(fullName, person.fullName);
+        if (!id.equals(person.id)) return false;
+        return fullName.equals(person.fullName);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (fullName != null ? fullName.hashCode() : 0);
+        int result = id.hashCode();
+        result = 31 * result + fullName.hashCode();
         return result;
     }
 }

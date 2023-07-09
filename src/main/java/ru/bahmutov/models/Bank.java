@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Objects;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -30,14 +28,14 @@ public class Bank {
 
         Bank bank = (Bank) o;
 
-        if (!Objects.equals(id, bank.id)) return false;
-        return Objects.equals(name, bank.name);
+        if (!id.equals(bank.id)) return false;
+        return name.equals(bank.name);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
         return result;
     }
 }
