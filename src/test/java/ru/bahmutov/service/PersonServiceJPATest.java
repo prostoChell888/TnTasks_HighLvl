@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
+
 @ExtendWith(MockitoExtension.class)
 class PersonServiceJPATest {
 
@@ -38,13 +39,13 @@ class PersonServiceJPATest {
                 new Person(2L, "Jim"),
                 new Person(3L, "Bil")));
 
-        List<PersonDto> expectedListOfPeople = List.of(
-                new PersonDto(1L, "Jon"),
-                new PersonDto(2L, "Jim"),
-                new PersonDto(3L, "Bil"));
+
 
         List<PersonDto> people = personService.getAllUsers();
 
-        assertIterableEquals(expectedListOfPeople, people);
+        assertIterableEquals(List.of(
+                new PersonDto(1L, "Jon"),
+                new PersonDto(2L, "Jim"),
+                new PersonDto(3L, "Bil")), people);
     }
 }

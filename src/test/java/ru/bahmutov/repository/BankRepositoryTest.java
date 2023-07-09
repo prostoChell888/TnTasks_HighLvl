@@ -38,15 +38,13 @@ class BankRepositoryTest {
         repository.save(new Bank(null, "Сбербанк"));
         repository.save(new Bank(null, "АльфаБанк"));
 
-        List<Bank> expectedListOfBunks = List.of(
-                new Bank(1L, "New bank name")
-                , new Bank(2L, "New bank name")
-                , new Bank(3L, "New bank name"));
-
-        repository.updateBankNames("new bank names");
+        
+        repository.updateBankNames("New bank name");
         var listOfBunks = repository.findAll();
 
-        assertIterableEquals(expectedListOfBunks, listOfBunks);
+        assertIterableEquals(List.of(
+                new Bank(1L, "New bank name")
+                , new Bank(2L, "New bank name")
+                , new Bank(3L, "New bank name")), listOfBunks);
     }
-
 }
